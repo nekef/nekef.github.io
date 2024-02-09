@@ -1,31 +1,42 @@
+
+<!DOCTYPE html>
 <html>
-<head>
-    <script>
-        // A function to fetch the joke from the API and display it on the page
-        function getJoke() {
-            // Create a new XMLHttpRequest object
-            var xhr = new XMLHttpRequest();
-            // Set the request method and the API URL
-            xhr.open("GET", "https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt");
-            // Set the response type to text
-            xhr.responseType = "text";
-            // Define what to do when the request is successful
-            xhr.onload = function() {
-                // Get the response text
-                var joke = xhr.response;
-                // Find the element with id="joke" on the page
-                var jokeElement = document.getElementById("joke");
-                // Set the inner HTML of the element to the joke
-                jokeElement.innerHTML = joke;
-            };
-            // Send the request
-            xhr.send();
-        }
-    </script>
-</head>
 <body>
-    <h1>Random Programming Joke</h1>
-    <p id="joke">Click the button to get a joke.</p>
-    <button onclick="getJoke()">Get Joke</button>
+
+<h2>IP Address Generator</h2>
+
+<p>Enter the number of IP addresses to generate:</p>
+
+<input type="number" id="numIPs" name="numIPs">
+<button onclick="generateIPs()">Generate</button>
+
+<p id="output"></p>
+
+<script>
+function generateIPs() {
+  var numIPs = document.getElementById("numIPs").value;
+  var output = document.getElementById("output");
+  output.innerHTML = "";
+
+  for (var i = 0; i < numIPs; i++) {
+    var ipv4 = Math.floor(Math.random() * 256) + "." +
+               Math.floor(Math.random() * 256) + "." +
+               Math.floor(Math.random() * 256) + "." +
+               Math.floor(Math.random() * 256);
+
+    var ipv6 = (Math.floor(Math.random() * 65536)).toString(16) + ":" +
+               (Math.floor(Math.random() * 65536)).toString(16) + ":" +
+               (Math.floor(Math.random() * 65536)).toString(16) + ":" +
+               (Math.floor(Math.random() * 65536)).toString(16) + ":" +
+               (Math.floor(Math.random() * 65536)).toString(16) + ":" +
+               (Math.floor(Math.random() * 65536)).toString(16) + ":" +
+               (Math.floor(Math.random() * 65536)).toString(16) + ":" +
+               (Math.floor(Math.random() * 65536)).toString(16);
+
+    output.innerHTML += "IPv4: " + ipv4 + "<br>" + "IPv6: " + ipv6 + "<br><br>";
+  }
+}
+</script>
+
 </body>
 </html>
