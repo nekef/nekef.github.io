@@ -47,8 +47,8 @@
   }
 
   // Normalize the input values to be between 0 and 1
-  val1 = Number(val1) / 1000; // assuming the input is less than 100
-  val2 = Number(val2) / 1000; // assuming the input is less than 100
+  val1 = Number(val1) / 1000; // assuming the input is less than 1000
+  val2 = Number(val2) / 1000; // assuming the input is less than 1000
 
   // Run the network
   let result = network.run([val1, val2]);
