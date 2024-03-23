@@ -41,6 +41,18 @@
     <p id="activity"></p>
     <p id="type"></p>
 
+    <script>
+        function getActivity() {
+            fetch('https://www.boredapi.com/api/activity')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('activity').textContent = 'Activity: ' + data.activity;
+                    document.getElementById('type').textContent = 'Type: ' + data.type;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+
 
 </body>
 </html>
