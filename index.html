@@ -117,7 +117,7 @@
 
 
     <script>
-    function setCookie(name, value, days) {
+   function setCookie(name, value, days) {
         var expires = "";
         if (days) {
             var date = new Date();
@@ -127,8 +127,24 @@
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
 
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var cookies = document.cookie.split(';');
+        for(var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            while (cookie.charAt(0) == ' ') {
+                cookie = cookie.substring(1, cookie.length);
+            }
+            if (cookie.indexOf(nameEQ) == 0) {
+                return cookie.substring(nameEQ.length, cookie.length);
+            }
+        }
+        return null;
+    }
+
     function acceptAllCookies() {
         setCookie('analytics', 'true', 365); // Setting analytics cookie to expire in 365 days
+        setCookie('cookie_consent', 'true', 365); // Setting cookie_consent cookie to expire in 365 days
         hideCookieBanner();
     }
 
@@ -137,8 +153,15 @@
     }
 
     function hideCookieBanner() {
-        document.querySelector('.cookie-banner').style.display = 'none';
+        document.getElementById('cookieBanner').style.display = 'none';
     }
+
+    window.onload = function() {
+        var cookieConsent = getCookie('cookie_consent');
+        if (!cookieConsent) {
+            document.getElementById('cookieBanner').style.display = 'block';
+        }
+    };
 </script>
 
    <a id="help-link" href="/help/help.html">Help</a>
