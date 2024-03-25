@@ -39,8 +39,64 @@
             left: 0;
             color: blue;
         }
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 20px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .cookie-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cookie-text {
+            flex: 1 1 70%;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .cookie-buttons {
+            flex: 1 1 30%;
+            text-align: center;
+        }
+        .cookie-button {
+            background-color: #fff;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .cookie-button:hover {
+            background-color: #ddd;
+        }
     </style>
 </head>
+
+<div class="cookie-banner">
+    <div class="container cookie-content">
+        <div class="cookie-text">
+            We use cookies to personalize content and ads, to provide social media features and to analyze our traffic. We also share information about your use of our site with our social media, advertising and analytics partners.
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-button" onclick="acceptAllCookies()">Accept All</button>
+            <button class="cookie-button" onclick="rejectNonEssentialCookies()">Reject Non-Essential</button>
+        </div>
+    </div>
+</div>
+    
 <body>
     <h1>Do Something</h1>
     <button onclick="getActivity()">Get Something</button>
@@ -58,6 +114,32 @@
                 .catch(error => console.error('Error:', error));
         }
     </script>
+
+
+    <script>
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function acceptAllCookies() {
+        setCookie('analytics', 'true', 365); // Setting analytics cookie to expire in 365 days
+        hideCookieBanner();
+    }
+
+    function rejectNonEssentialCookies() {
+        hideCookieBanner();
+    }
+
+    function hideCookieBanner() {
+        document.querySelector('.cookie-banner').style.display = 'none';
+    }
+</script>
 
    <a id="help-link" href="/help/help.html">Help</a>
 
