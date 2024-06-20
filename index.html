@@ -1,73 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Activity Fetcher</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Search Engine</title>
+    <!-- Add any other meta tags or stylesheets you need -->
     <style>
-        body {
+        /* Modern styles for the search box */
+        .gcse-search input.gsc-input {
+            width: 300px;
+            padding: 10px;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        h1 {
-            color: #333;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
         }
-        button:hover {
-            background-color: #0056b3;
+        .gcse-search input.gsc-input:focus {
+            background-color: #fff;
+            border-color: #007bff;
         }
-        p {
-            font-size: 1.2em;
-            color: #555;
+
+        /* Modern styles for search results */
+        .gcse-search .gsc-webResult {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
         }
-         #help-link {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            color: blue;
-        }
-       
     </style>
+    <script async src="https://cse.google.com/cse.js?cx=7532673e920714da8"></script>
 </head>
-
-
-    
 <body>
-    <h1>Do Something</h1>
-    <button onclick="getActivity()">Get Something</button>
-    <p id="activity"></p>
-    <p id="type"></p>
-
-    <script>
-        function getActivity() {
-            fetch('https://www.boredapi.com/api/activity')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('activity').textContent = 'Activity: ' + data.activity;
-                    document.getElementById('type').textContent = 'Type: ' + data.type;
-                })
-                .catch(error => console.error('Error:', error));
-        }
-    </script>
-
-
- 
-
-   <a id="help-link" href="/help/help.html">Help</a>
-
-
+    <!-- Place the search box where you want it -->
+    <div class="gcse-search"></div>
+    <!-- Add other content or elements as needed -->
 </body>
 </html>
