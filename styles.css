@@ -1,0 +1,118 @@
+/* General Styles */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    background-color: #222;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #0ff;
+    font-size: 18px;
+    text-shadow: 0 0 5px #0ff;
+}
+
+/* Neon Header */
+.neon-header h1 {
+    font-size: 48px;
+    color: #0ff;
+    text-align: center;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #ff00ff;
+}
+
+.neon-header p {
+    text-align: center;
+    font-size: 18px;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+/* Form Section */
+.form-section {
+    text-align: center;
+    margin: 50px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 18px;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* Neon Button */
+.neon-button {
+    padding: 10px 20px;
+    background-color: #0ff;
+    color: #000;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #0ff;
+    cursor: pointer;
+}
+
+/* Marketplace Section */
+.marketplace-section {
+    text-align: center;
+    margin: 50px;
+}
+
+.item-grid {
+    display: flex;
+    justify-content: space-around;
+}
+
+.item {
+    background-color: #111;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0ff;
+    width: 200px;
+    text-align: center;
+}
+
+.item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.item p {
+    margin: 10px 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    color: #0ff;
+    text-shadow: 0 0 5px #0ff;
+}
